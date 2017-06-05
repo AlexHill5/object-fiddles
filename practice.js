@@ -64,7 +64,11 @@ Instead, console.log your whole backPack object and then check out the console. 
 
 //Create an 'alsoMe' object with the following properties name, age, height, gender, married, eyeColor, hairColor. Fill those properties in with the appropriate values.
 
-  //Code Here
+  var alsoMe = {
+    name: "Alex",
+    age: 21
+
+  }
 
 //Now, loop through your object and alert every value. *Tyler --> 24 --> 6'0 --> Male, etc etc
 
@@ -121,7 +125,10 @@ var user1 = {
 /*Above you're given a user object. Loop through the user object checking to make sure
 that each value is truthy. If it's not truthy, remove it from the object. */
 
-  //Code Here
+  for (var key in user1){
+    if (user1[key] !== 0, null, undefined, "", NaN)
+    delete user1[key];
+  }
 
 //Once you get your truthy Object, Change the remaining values in the object to be specific to you (name: 'your name', username: 'your username'), rather than my information.
 
@@ -165,17 +172,23 @@ var user2 = {
 
 //Create an empty object called methodCollection.
 
-  //Code Here
+  var methodCollection = {};
 
 /*Now add two methods (functions that are properties on objects) to your methodCollection
 object. One called 'alertHello' which alerts 'hello' and another method called logHello
  which logs 'hello' to the console. */
 
-  //Code Here
+  methodCollection.alertHello = function(){
+    alert['hello'];
+  }
+
+  methodCollection.logHello = function(){
+    console.log('hello');
+  }
 
 //Now call your alertHello and logHello methods.
 
-  //Code Here
+  methodCollection.logHello();
 
 
 
@@ -187,7 +200,15 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 // parameters and returns a new object with all of the information that you passed in.
 
   //Code Here
-
+  
+    function makePerson (name, birthday, ssn){
+    var newObject = {
+      name: name,
+      birthday: birthday,
+      ssn: ssn
+    }
+    return newObject;
+  }
 
 
 //NEXT PROBLEM
@@ -197,6 +218,14 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 // Create a function called makeCard which takes in cardNumber, expirationDate, and securityCode to make a Credit Card object and returns that object so that whenever you invoke makeCard, you get a brand new credit card.
 
   //Code Here
+  function makeCard (cardNumber, expirationDate, securityCode){
+    var cardObject = {
+      cardNumber: cardNumber,
+      expirationDate: expirationDate,
+      securityCode: securityCode
+    }
+    return cardObject;
+  }
 
 
 
@@ -209,4 +238,15 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
    Have bindCard merge the two parameters together into a new object which contains all the properties from the person as well as the creditcard. While Object.assign would give you the answer, specRunner requires an answer without using it.
 */
 
-  //Code Here
+  function bindCard(newObject, cardObject){
+      var combined = {};
+      for (var key in newObject ){
+       combined[key] = newObject[key];
+      }
+      for (var key in cardObject){
+        combined[key] = cardObject[key];
+      }
+      return combined;
+  }
+
+
